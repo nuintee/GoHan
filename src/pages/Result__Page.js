@@ -15,7 +15,6 @@ const Result__Page = () => {
             <Logo />
             <Search />
         </div>
-        <Notification />
         <Powered />
         </>
     )

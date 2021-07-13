@@ -32,7 +32,6 @@ const Home__Page = () => {
             <Logo />
             <Search isSearching = {isSearching} setIsSearching = {setIsSearching} isNavi = {isNavi} position = {position}/>
         </div>
-        <p>{isNotify ? 'true' : 'false'}</p>
         { isNavi == 'error' && isSearching && isNotify ? <Notification setIsNotify = {setIsNotify} setIsSearching = {setIsSearching}/> : null}
         <Powered />
         </>
