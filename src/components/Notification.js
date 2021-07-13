@@ -2,7 +2,7 @@ import React from "react"
 import { FaTimes as Cross } from 'react-icons/fa'
 
 const Notification = (props) => {
-    const { color, text, setIsNotify, setIsSearching } = props
+    const { color, text, setIsNotify, setIsSearching} = props
 
     const ClickHandle = () => {
         setIsSearching(false)

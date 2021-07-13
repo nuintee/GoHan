@@ -90,6 +90,7 @@
 
 .item-title {
   font-weight: bold;
+  margin-bottom: 1em;
 }
 .item-icons {
   display: flex;
@@ -102,9 +103,12 @@
   color: #c4c4c4;
 }
 .item-buttons {
-  width: 2em;
-  height: 2em;
+  display: flex;
+  padding: 0.7em;
   margin-right: 1em;
   cursor: pointer;
   border: none;
+}
+.item-buttons:hover {
+  opacity: 0.5;
 }

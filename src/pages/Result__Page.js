@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { BiCoin as Coin } from 'react-icons/bi' 
-import { FaHamburger as Type } from 'react-icons/fa'
 
 import Nav from '../components/Nav'
 import Logo from '../components/Logo'
 import Powered from '../components/Powered'
 import Notification from '../components/Notification'
 import Search from '../components/Search'
+import Item from '../components/Item'
 
 const Result__Page = () => {
+    const [ isCopied, setIsCopied ] = useState(false)
 
     useEffect(() => {
         return () => {
@@ -22,35 +22,9 @@ const Result__Page = () => {
         }
     },[])
 
-    const Item = () => {
-        return (
-            <div className = 'l-item-container item-container'>
-                <img className = 'l-item-image' src = 'https://i.ibb.co/Tb8pRLR/healthy-eating-ingredients-1200x628-facebook-1200x628.jpg'/>
-                <div className = 'l-item-text_group'>
-                    <p className = 'item-title'>NYC Chop Salad</p>
-                    <div className = 'l-item-conditions_group'>
-                        <span className = 'l-item-conditions'>
-                            <i className = 'item-icons'><Type size = {20}/></i>
-                            <p className = 'item-condition'>重め</p>
-                        </span>
-                        <span className = 'l-item-conditions'>
-                            <i className = 'item-icons'><Coin size = {25}/></i>
-                            <p className = 'item-condition'>¥2000</p>
-                        </span>
-                    </div>
-                </div>
-                <div className = 'l-item-button_group'>
-                    <button className = 'item-buttons'>L</button>
-                    <button className = 'item-buttons'>S</button>
-                    <button className = 'item-buttons'>W</button>
-                </div>
-            </div>
-        )
-    }
-
     const ItemRenderer = () => {
         return (
-            <p>Render</p>
+            <Item setIsCopied = {() => setIsCopied(true)} isCopied = {isCopied}/>
         )
     }
 
@@ -59,8 +33,9 @@ const Result__Page = () => {
         <Nav index = {1}/>
         <div>
             <Logo />
-            <Item />
+            <ItemRenderer />
         </div>
+        {isCopied ? <Notification color = 'green' text = 'リンクをコピーしました。'/> : null}
         <Powered />
         </>
     )

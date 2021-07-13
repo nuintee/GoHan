@@ -42,6 +42,7 @@
   align-items: center;
   justify-content: space-between;
   width: 70vw;
+  max-width: 500px;
   border-radius: 20px;
 }
 .l-item-text_group {
@@ -57,11 +58,14 @@
 .l-item-button_group {
   display: flex;
   width: 100%;
-  padding: 2em;
+  padding: 1em 2em 2em 2em;
 }
 .l-item-conditions {
   display: flex;
   margin: 0px 0em 0em 2em;
+}
+.l-item-conditions:first-child {
+  margin: 0;
 }
 .l-item-image {
   width: 100%;
