@@ -1,0 +1,80 @@
+.nav-button {
+  padding: 10px;
+  margin: 15px;
+  border-bottom: 2px solid #c4c4c4;
+}
+.logo-image {
+  height: 4em;
+}
+.logo-text {
+  margin-top: 0.25em;
+  margin-bottom: 2em;
+  color: #c4c4c4;
+}
+.powered-text > a {
+  color: #000;
+  text-decoration: underline;
+}
+.notification-container {
+  background-color: #ff3d00;
+  padding: 1em;
+  border-radius: 20px;
+}
+.notification-container.green {
+  background-color: #1bd06e;
+}
+.notification-text {
+  color: #fff;
+}
+.notification-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d13200;
+  border: none;
+  outline: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  color: #fff;
+}
+.notification-button.green {
+  background-color: #00a34b;
+}
+.notification-button:hover {
+  cursor: pointer;
+}
+.search-button {
+  position: relative;
+  height: 10em;
+  width: 10em;
+  cursor: pointer;
+  border-radius: 100%;
+  border: none;
+  background: linear-gradient(90deg, #ff9c06 0%, #ff4d00 100%);
+  color: #fff;
+  z-index: 100;
+}
+.search-button:hover {
+  transform: scale(1.1);
+  transition-duration: 0.5s;
+}
+.search-appear {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  height: 5em;
+  width: 5em;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 1s;
+  transform-origin: center;
+}
+.search-appear:hover {
+}
