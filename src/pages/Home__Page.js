@@ -13,15 +13,17 @@ const Home__Page = () => {
     const [ isNotify, setIsNotify ] = useState(false)
 
     useEffect(() => {
-        if ('geolocation' in navigator) {
-            navigator.geolocation.getCurrentPosition(pos => {
-                setIsNavi(true)
-                const { latitude, longitude } = pos.coords
-                setPosition({latitude,longitude})
-            },error => {
-                setIsNavi('error')
-                setIsNotify(true)
-            })
+        return () => {
+            if ('geolocation' in navigator) {
+                navigator.geolocation.getCurrentPosition(pos => {
+                    setIsNavi(true)
+                    const { latitude, longitude } = pos.coords
+                    setPosition({latitude,longitude})
+                },error => {
+                    setIsNavi('error')
+                    setIsNotify(true)
+                })
+            }
         }
     },[])
 
@@ -30,9 +32,9 @@ const Home__Page = () => {
         <Nav index = {0}/>
         <div>
             <Logo />
-            <Search isSearching = {isSearching} setIsSearching = {setIsSearching} isNavi = {isNavi} position = {position}/>
+            <Search isSearching = {isSearching} setIsSearching = {() => setIsSearching} isNavi = {isNavi} position = {position}/>
         </div>
-        { isNavi == 'error' && isSearching && isNotify ? <Notification setIsNotify = {setIsNotify} setIsSearching = {setIsSearching}/> : null}
+        { isNavi == 'error' && isSearching && isNotify ? <Notification setIsNotify = {() => setIsNotify} setIsSearching = {() => setIsSearching}/> : null}
         <Powered />
         </>
     )

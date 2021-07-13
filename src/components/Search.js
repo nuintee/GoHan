@@ -24,10 +24,10 @@ const Search = (props) => {
         localStorage.setItem(Date.now(),JSON.stringify(json))
     }
 
-    const ClickHanle = () => {
+    const ClickHandle = () => {
         if (isNavi == 'error') {
             setIsSearching(true)
-        } else if (isNavi == true) {
+        } else if (isNavi) {
             setIsSearching(true)
             setIsHover(false)
             fetch(`http://localhost:3000/?lat=${position.latitude}&lng=${position.longitude}`)
@@ -49,7 +49,7 @@ const Search = (props) => {
             </div>
             <button className = "search-button" 
                     onMouseEnter = {() => { isSearching && isNavi != 'error' ? setIsHover(false) : setIsHover(true)}}
-                    onClick = {ClickHanle}>
+                    onClick = {ClickHandle}>
                     {isSearching && isNavi != 'error' ? <Loading size = {30} className = 'spin__animation' /> : <Icon size = {30} />}
             </button>
         </div>
