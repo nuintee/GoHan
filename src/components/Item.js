@@ -7,7 +7,7 @@ import { RiMapPin2Line as Pin } from 'react-icons/ri'
 import { FiLink2 as URL } from 'react-icons/fi'
 
 const Item = (props) => {
-    const { setIsCopied, isCopied, name, type, cost, image, url } = props
+    const { setIsCopied, isCopied, name, type, cost, image, url, address } = props
 
     const CopyHandle = () => {
         setIsCopied(true)
@@ -30,8 +30,8 @@ const Item = (props) => {
                 </div>
             </div>
             <div className = 'l-item-button_group'>
-                <button className = 'item-buttons'><Pin size = {20}/></button>
-                <a href = {url || null}className = 'item-buttons'><Globe size = {20}/></a>
+                <a href = {`https://www.google.com/search?q=${address}` || null} target = '_blank' className = 'item-buttons'><Pin size = {20}/></a>
+                <a href = {url || 'URL'}className = 'item-buttons'><Globe size = {20}/></a>
                 <button className = 'item-buttons' onClick = {CopyHandle}><URL size = {20}/></button>
             </div>
         </div>

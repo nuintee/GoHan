@@ -12,15 +12,15 @@ import Item from '../components/Item'
 const Result__Page = () => {
     const [ isCopied, setIsCopied ] = useState(false)
 
-    useEffect(() => {
-        return () => {
-            if (localStorage) {
-                Object.keys(localStorage).map(key => {
-                    console.log(JSON.parse(localStorage.getItem(key)))
-                })
-            }
-        }
-    },[])
+    // useEffect(() => {
+    //     return () => {
+    //         if (localStorage) {
+    //             Object.keys(localStorage).map(key => {
+    //                 console.log(JSON.parse(localStorage.getItem(key)))
+    //             })
+    //         }
+    //     }
+    // },[])
 
     const ItemRenderer = () => {
 
@@ -31,15 +31,24 @@ const Result__Page = () => {
             transform: `translate(-50%,-50%)`
         }
 
-        if (Object.keys(localStorage).length >= 1) {
-            return Object.keys(localStorage).map(key => (
-                <Item 
+        if (localStorage.length >= 1) {
+            return Object.keys(localStorage).map((key,index) => (
+                <Item
+                    key = {index}
+                    date = {key}
                     name = {JSON.parse(localStorage[key]).name}
-                    url = {JSON.parse(localStorage[key]).urls.pc}
                     image = {JSON.parse(localStorage[key]).photo.pc.l}
                 />
-            ))
-        }　else if (Object.keys(localStorage).length == 0) {
+            )).sort((a,b) => {
+                if (a.props.date > b.props.date) {
+                    return -1
+                } else if (a.props.date < b.props.date) {
+                    return 1
+                } else if (a.props.date == b.props.date) {
+                    return 0
+                }
+            })
+        }　else if (localStorage.length == 0) {
             return <p style = {noresults_style}>結果がありません。</p>
         }
     }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router'
 
 const useSearch = () => {
     const [ isHover, setIsHover ] = useState(false)
@@ -16,12 +16,15 @@ const useSearch = () => {
         JSON.stringify(json)
         localStorage.setItem(Date.now(),JSON.stringify(json))
     }
-    
+
     const SearchData = (position) => {
         console.log(position)
         fetch(`http://localhost:3000/?lat=${position.latitude}&lng=${position.longitude}`)
         .then(res => res.json())
-        .then(doc => PickData(doc))
+        .then(doc => {
+            PickData(doc)
+            history.push('/result')
+        })
     }
 
     return { PickData, SaveStorage, SearchData}

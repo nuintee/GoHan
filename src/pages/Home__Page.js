@@ -11,16 +11,18 @@ const Home__Page = () => {
     const [ isNavi, setIsNavi ] = useState(false)
     const [ isNotify, setIsNotify ] = useState(false)
 
-    useEffect(() => {
-            if ('geolocation' in navigator) {
-                navigator.geolocation.getCurrentPosition(pos => {
-                    setIsNavi(true)
-                    const { latitude, longitude } = pos.coords
-                    setPosition({latitude,longitude})
-                },error => {
-                    setIsNavi('error')
-                })
-            }
+    useEffect( async() => {
+       if ('geolocation' in navigator) {
+           console.log('通信中')
+           setIsNavi('loading')
+           await navigator.geolocation.getCurrentPosition(pos => {
+                const { latitude, longitude } = pos.coords
+                setPosition({latitude, longitude})
+                setIsNavi(true)
+           },error => {
+                setIsNavi('error')
+           })
+       }
     },[])
 
     return (
@@ -28,9 +30,9 @@ const Home__Page = () => {
         <Nav index = {0}/>
         <div>
             <Logo />
-            <Search condition = {isNavi} setIsNotify = {setIsNotify} position = {position}/>
+            <Search condition = {isNavi} setIsNotify = {setIsNotify} position = {position} isNavi = {isNavi}/>
+            {isNavi == 'loading' ? <Notification color = 'green' text = '位置情報を取得しています。'/> : null}
         </div>
-        {/* { isNavi == 'error' && isSearching && isNotify ? <Notification setIsNotify = {() => setIsNotify} setIsSearching = {() => setIsSearching}/> : null} */}
         { isNotify ? <Notification setIsNotify = {setIsNotify}/> : null}
         <Powered />
         </>

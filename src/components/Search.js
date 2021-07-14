@@ -8,17 +8,16 @@ import useSearch from '../hooks/useSearch'
 
 const Search = (props) => {
     const history = useHistory()
-    const { condition, position, setIsNotify } = props
+    const { condition, position, setIsNotify, isNavi } = props
     const [ isClicked, setIsClicked ] = useState(false)
     const { SearchData, PickData, SaveStorage } = useSearch()
 
     const Clicker = () => {
         if (condition == 'error') {
             setIsNotify(true)
-        } else {
+        } else if (condition != 'loading') {
             setIsClicked(true)
             SearchData(position)
-            history.push('/result')
         }
     }
 
