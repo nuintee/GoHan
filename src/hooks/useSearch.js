@@ -18,13 +18,12 @@ const useSearch = () => {
     }
 
     const SearchData = (position) => {
-        console.log(position)
-        fetch(`http://localhost:3000/?lat=${position.latitude}&lng=${position.longitude}`)
-        .then(res => res.json())
-        .then(doc => {
-            PickData(doc)
-            history.push('/result')
-        })
+        // fetch(`http://localhost:3000/?lat=${position.latitude}&lng=${position.longitude}`)
+        // .then(res => res.json())
+        // .then(doc => {
+        //     PickData(doc)
+        //     history.push('/result')
+        // })
     }
 
     return { PickData, SaveStorage, SearchData}

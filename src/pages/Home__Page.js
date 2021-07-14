@@ -11,11 +11,11 @@ const Home__Page = () => {
     const [ isNavi, setIsNavi ] = useState(false)
     const [ isNotify, setIsNotify ] = useState(false)
 
-    useEffect( async() => {
+    useEffect( () => {
        if ('geolocation' in navigator) {
            console.log('通信中')
            setIsNavi('loading')
-           await navigator.geolocation.getCurrentPosition(pos => {
+           navigator.geolocation.getCurrentPosition(pos => {
                 const { latitude, longitude } = pos.coords
                 setPosition({latitude, longitude})
                 setIsNavi(true)

@@ -7,12 +7,13 @@ import Result from  './pages/Result__Page'
 import './css/base.css';
 
 const App = () => {
-
     return (
-        <Router>
-            <Route exact path = "/" component = {Home}/>
-            <Route exact path = "/result" component = {Result}/>
-        </Router>
+        <React.StrictMode>
+            <Router>
+                <Route exact path = "/" component = {Home}/>
+                <Route exact path = "/result" component = {Result}/>
+            </Router>
+        </React.StrictMode>
     )
 }
 

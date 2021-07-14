@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js",
-    "start": "webpack serve --config webpack.config.js"
+    "deploy": "npm run build && git push glitch_gohan",
+    "start": "webpack serve --config webpack.config.js",
+    
   },
   "keywords": [],
   "author": "",
@@ -18,9 +20,11 @@
     "@babel/preset-react": "^7.14.5",
     "@babel/runtime": "^7.14.6",
     "babel-loader": "^8.2.2",
+    "babel-preset-es2015": "^6.24.1",
     "css-loader": "^5.2.6",
     "dotenv": "^10.0.0",
     "file-loader": "^6.2.0",
+    "gh-pages": "^3.2.3",
     "html-webpack-plugin": "^5.3.2",
     "style-loader": "^3.0.0",
     "url-loader": "^4.1.1",
@@ -30,6 +34,7 @@
   },
   "dependencies": {
     "core-js": "^3.15.2",
+    "dotenv-webpack": "^7.0.3",
     "favicons-webpack-plugin": "^5.0.2",
     "node-fetch": "^2.6.1",
     "react": "^17.0.2",
