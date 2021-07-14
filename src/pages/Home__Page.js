@@ -9,11 +9,9 @@ import Search from '../components/Search'
 const Home__Page = () => {    
     const [ position, setPosition ] = useState()
     const [ isNavi, setIsNavi ] = useState(false)
-    const [ isSearching, setIsSearching ] = useState(false)
     const [ isNotify, setIsNotify ] = useState(false)
 
     useEffect(() => {
-        return () => {
             if ('geolocation' in navigator) {
                 navigator.geolocation.getCurrentPosition(pos => {
                     setIsNavi(true)
@@ -21,10 +19,8 @@ const Home__Page = () => {
                     setPosition({latitude,longitude})
                 },error => {
                     setIsNavi('error')
-                    setIsNotify(true)
                 })
             }
-        }
     },[])
 
     return (
@@ -32,9 +28,10 @@ const Home__Page = () => {
         <Nav index = {0}/>
         <div>
             <Logo />
-            <Search isSearching = {isSearching} setIsSearching = {() => setIsSearching} isNavi = {isNavi} position = {position}/>
+            <Search condition = {isNavi} setIsNotify = {setIsNotify} position = {position}/>
         </div>
-        { isNavi == 'error' && isSearching && isNotify ? <Notification setIsNotify = {() => setIsNotify} setIsSearching = {() => setIsSearching}/> : null}
+        {/* { isNavi == 'error' && isSearching && isNotify ? <Notification setIsNotify = {() => setIsNotify} setIsSearching = {() => setIsSearching}/> : null} */}
+        { isNotify ? <Notification setIsNotify = {setIsNotify}/> : null}
         <Powered />
         </>
     )

@@ -9,7 +9,7 @@
 .logo-text {
   margin-top: 0.25em;
   margin-bottom: 2em;
-  color: #c4c4c4;
+  color: #9f9f9f;
 }
 .powered-text > a {
   color: #000;
@@ -107,8 +107,11 @@
   display: flex;
   padding: 0.7em;
   margin-right: 1em;
+  font-size: 1em;
   cursor: pointer;
   border: none;
+  background-color: #e5e5e5;
+  color: #000;
 }
 .item-buttons:hover {
   opacity: 0.5;

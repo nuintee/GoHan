@@ -23,7 +23,15 @@ const Result__Page = () => {
     },[])
 
     const ItemRenderer = () => {
-        if (localStorage) {
+
+        const noresults_style = {
+            position: 'absolute',
+            top: `50%`,
+            left: `50%`,
+            transform: `translate(-50%,-50%)`
+        }
+
+        if (Object.keys(localStorage).length >= 1) {
             return Object.keys(localStorage).map(key => (
                 <Item 
                     name = {JSON.parse(localStorage[key]).name}
@@ -31,6 +39,8 @@ const Result__Page = () => {
                     image = {JSON.parse(localStorage[key]).photo.pc.l}
                 />
             ))
+        }　else if (Object.keys(localStorage).length == 0) {
+            return <p style = {noresults_style}>結果がありません。</p>
         }
     }
 
