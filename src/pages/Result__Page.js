@@ -23,17 +23,25 @@ const Result__Page = () => {
     },[])
 
     const ItemRenderer = () => {
-        return (
-            <Item setIsCopied = {() => setIsCopied(true)} isCopied = {isCopied}/>
-        )
+        if (localStorage) {
+            return Object.keys(localStorage).map(key => (
+                <Item 
+                    name = {JSON.parse(localStorage[key]).name}
+                    url = {JSON.parse(localStorage[key]).urls.pc}
+                    image = {JSON.parse(localStorage[key]).photo.pc.l}
+                />
+            ))
+        }
     }
 
     return (
         <>
         <Nav index = {1}/>
-        <div>
+        <div className = 'l-logo_content'>
             <Logo />
-            <ItemRenderer />
+            <div className = 'l-result-scroll'>
+                <ItemRenderer />
+            </div>
         </div>
         {isCopied ? <Notification color = 'green' text = 'リンクをコピーしました。'/> : null}
         <Powered />

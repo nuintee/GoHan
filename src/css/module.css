@@ -81,6 +81,7 @@
 
 .item-container {
   cursor: pointer;
+  margin-bottom: 2.5em;
 }
 
 .item-container:hover {

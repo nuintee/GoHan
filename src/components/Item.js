@@ -7,7 +7,7 @@ import { RiMapPin2Line as Pin } from 'react-icons/ri'
 import { FiLink2 as URL } from 'react-icons/fi'
 
 const Item = (props) => {
-    const { setIsCopied, isCopied } = props
+    const { setIsCopied, isCopied, name, type, cost, image, url } = props
 
     const CopyHandle = () => {
         setIsCopied(true)
@@ -15,9 +15,9 @@ const Item = (props) => {
 
     return (
         <div className = 'l-item-container item-container'>
-            <img className = 'l-item-image' src = 'https://i.ibb.co/Tb8pRLR/healthy-eating-ingredients-1200x628-facebook-1200x628.jpg'/>
+            <img className = 'l-item-image' src = {image || 'https://i.ibb.co/Tb8pRLR/healthy-eating-ingredients-1200x628-facebook-1200x628.jpg'}/>
             <div className = 'l-item-text_group'>
-                <p className = 'item-title'>NYC Chop Salad</p>
+                <p className = 'item-title'>{name || '名前'}</p>
                 <div className = 'l-item-conditions_group'>
                     <span className = 'l-item-conditions'>
                         <i className = 'item-icons'><Type size = {20}/></i>
@@ -31,7 +31,7 @@ const Item = (props) => {
             </div>
             <div className = 'l-item-button_group'>
                 <button className = 'item-buttons'><Pin size = {20}/></button>
-                <button className = 'item-buttons'><Globe size = {20}/></button>
+                <a href = {url || null}className = 'item-buttons'><Globe size = {20}/></a>
                 <button className = 'item-buttons' onClick = {CopyHandle}><URL size = {20}/></button>
             </div>
         </div>
