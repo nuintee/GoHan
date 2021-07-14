@@ -16,20 +16,15 @@ const useSearch = () => {
         JSON.stringify(json)
         localStorage.setItem(Date.now(),JSON.stringify(json))
     }
-
-    const ClickHandle = () => {
-        if (isNavi == 'error') {
-            setIsSearching(true)
-        } else if (isNavi) {
-            setIsSearching(true)
-            setIsHover(false)
-            fetch(`http://localhost:3000/?lat=${position.latitude}&lng=${position.longitude}`)
-            .then(res => res.json())
-            .then(doc => PickData(doc))
-            
-            history.push('/result')
-        }
+    
+    const SearchData = (position) => {
+        console.log(position)
+        fetch(`http://localhost:3000/?lat=${position.latitude}&lng=${position.longitude}`)
+        .then(res => res.json())
+        .then(doc => PickData(doc))
     }
+
+    return { PickData, SaveStorage, SearchData}
 }
 
 export default useSearch
