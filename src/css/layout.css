@@ -60,7 +60,7 @@
 .l-item-button_group {
   display: flex;
   width: 100%;
-  padding: 1em 2em 2em 2em;
+  padding: 0em 2em 2em 2em;
 }
 .l-item-conditions {
   display: flex;

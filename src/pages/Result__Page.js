@@ -11,16 +11,7 @@ import Item from '../components/Item'
 
 const Result__Page = () => {
     const [ isCopied, setIsCopied ] = useState(false)
-
-    // useEffect(() => {
-    //     return () => {
-    //         if (localStorage) {
-    //             Object.keys(localStorage).map(key => {
-    //                 console.log(JSON.parse(localStorage.getItem(key)))
-    //             })
-    //         }
-    //     }
-    // },[])
+    const [ isNotify, setIsNotify ] = useState(false)
 
     const ItemRenderer = () => {
 
@@ -38,6 +29,10 @@ const Result__Page = () => {
                     date = {key}
                     name = {JSON.parse(localStorage[key]).name}
                     image = {JSON.parse(localStorage[key]).photo.pc.l}
+                    url = {JSON.parse(localStorage[key]).urls.pc}
+                    address = {JSON.parse(localStorage[key]).address}
+                    isNotify = {isNotify}
+                    setIsNotify = {setIsNotify}
                 />
             )).sort((a,b) => {
                 if (a.props.date > b.props.date) {
@@ -62,7 +57,7 @@ const Result__Page = () => {
                 <ItemRenderer />
             </div>
         </div>
-        {isCopied ? <Notification color = 'green' text = 'リンクをコピーしました。'/> : null}
+        {isNotify ? <Notification color = 'green' text = 'リンクをコピーしました。' setIsNotify = {setIsNotify}/> : null}
         <Powered />
         </>
     )
