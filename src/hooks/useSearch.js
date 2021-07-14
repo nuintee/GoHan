@@ -18,12 +18,12 @@ const useSearch = () => {
     }
 
     const SearchData = (position) => {
-        // fetch(`http://localhost:3000/?lat=${position.latitude}&lng=${position.longitude}`)
-        // .then(res => res.json())
-        // .then(doc => {
-        //     PickData(doc)
-        //     history.push('/result')
-        // })
+        fetch(`https://food-server.glitch.me/?lat=${position.latitude}&lng=${position.longitude}`)
+        .then(res => res.json())
+        .then(doc => {
+            PickData(doc)
+            history.push('/result')
+        })
     }
 
     return { PickData, SaveStorage, SearchData}

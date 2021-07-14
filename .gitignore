@@ -1,6 +1,3 @@
 node_modules
 webpack.config.js
 .env.test
-src
-package.json
-package-lock.json
