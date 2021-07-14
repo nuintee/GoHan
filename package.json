@@ -7,8 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js",
     "deploy": "npm run build && git push glitch_gohan",
-    "start": "webpack serve --config webpack.config.js",
-    
+    "start": "webpack serve --config webpack.config.js"
   },
   "keywords": [],
   "author": "",

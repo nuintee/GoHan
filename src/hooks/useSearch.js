@@ -4,13 +4,16 @@ import { useHistory } from 'react-router'
 const useSearch = () => {
     const [ isHover, setIsHover ] = useState(false)
     const history = useHistory()
+    let randomInt;
 
     const PickData = (json) => {
-        const shop = json.results.shop
-        const index = Math.floor(shop.length * Math.random())
-        const random = shop[index]
+        console.log(json)
+        const shop = json.results.shop // Shops <Object>
+        randomInt = Math.floor(shop.length * Math.random())// Random <Int>
+        const random = shop[randomInt] // Actual Result <Object>
         SaveStorage(random)
     }
+
 
     const SaveStorage = (json) => { 
         JSON.stringify(json)
@@ -18,7 +21,7 @@ const useSearch = () => {
     }
 
     const SearchData = (position) => {
-        fetch(`https://food-server.glitch.me/?lat=${position.latitude}&lng=${position.longitude}`)
+        fetch(`https://food-server.glitch.me/?lat=${position.latitude}&lng=${position.longitude}&index=${randomInt}`)
         .then(res => res.json())
         .then(doc => {
             PickData(doc)
