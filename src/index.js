@@ -7,9 +7,9 @@ import './css/module.css';
 import './css/state.css';
 import './css/animation.css'
 
-import * as serviceWorker from './serviceWorker';
+// import * as serviceWorker from './serviceWorker';
 
-serviceWorker.register();
+// serviceWorker.register();
 
 import App from './App'
 
