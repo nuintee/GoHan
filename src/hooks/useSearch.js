@@ -4,15 +4,18 @@ import { useHistory } from 'react-router'
 const useSearch = () => {
     const [ isHover, setIsHover ] = useState(false)
     const history = useHistory()
-    let randomInt;
+    let randomInt
 
     const PickData = (json) => {
-        console.log(json)
-        const shop = json.results.shop // Shops <Object>
-        const random = shop[randomInt] // Actual Result <Object>
-        SaveStorage(random)
+        if (json) {
+            const shop = json.results.shop // Shops <Object>
+            if (shop.length > 0) {
+                const random = Math.floor(shop.length * Math.random())
+                const item = shop[random] // Actual Result <Object>
+                SaveStorage(item)
+            }
+        }
     }
-
 
     const SaveStorage = (json) => { 
         JSON.stringify(json)
@@ -20,13 +23,14 @@ const useSearch = () => {
     }
 
     const SearchData = (position) => {
-        randomInt = Math.floor(shop.length * Math.random())// Random <Int>
+        randomInt = Math.floor(100 * Math.random())// Random <Int>
 
-        fetch(`https://food-server.glitch.me/?lat=${position.latitude}&lng=${position.longitude}&index=${randomInt}`)
+        //fetch(`https://food-server.glitch.me/?lat=${position.latitude}&lng=${position.longitude}&index=${randomInt}`)
+        fetch(`http://localhost:3000/?lat=${position.latitude}&lng=${position.longitude}&int=${randomInt}`)
         .then(res => res.json())
         .then(doc => {
             PickData(doc)
-            history.push('/#result')
+            window.location.href = '/#/result'
         })
     }
 
