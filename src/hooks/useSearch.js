@@ -9,7 +9,6 @@ const useSearch = () => {
     const PickData = (json) => {
         console.log(json)
         const shop = json.results.shop // Shops <Object>
-        randomInt = Math.floor(shop.length * Math.random())// Random <Int>
         const random = shop[randomInt] // Actual Result <Object>
         SaveStorage(random)
     }
@@ -21,11 +20,13 @@ const useSearch = () => {
     }
 
     const SearchData = (position) => {
+        randomInt = Math.floor(shop.length * Math.random())// Random <Int>
+
         fetch(`https://food-server.glitch.me/?lat=${position.latitude}&lng=${position.longitude}&index=${randomInt}`)
         .then(res => res.json())
         .then(doc => {
             PickData(doc)
-            history.push('/result')
+            history.push('/#result')
         })
     }
 
