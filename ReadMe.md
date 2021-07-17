@@ -21,7 +21,7 @@
 
 ![結果画面](https://drive.google.com/uc?export=view&id=1pJjfrHHTSUwL5hF0KlAauEdcj3kyip6M)
 
-## 仕様技術
+## 仕用技術
 
 - HTML/CSS
 - Javascript
