@@ -3,6 +3,7 @@ import { useHistory } from 'react-router'
 
 const useSearch = () => {
     const [ isHover, setIsHover ] = useState(false)
+    const [ isSlow, setIsSlow ] = useState(false)
     const history = useHistory()
     let randomInt
 
@@ -25,11 +26,12 @@ const useSearch = () => {
     const SearchData = (position) => {
         randomInt = Math.floor(100 * Math.random())// Random <Int>
         const startTime = performance.now()
-        const timeout = setTimeout(`alert('5秒以上かかります。')`,5000)
+        const timeout = setTimeout(setIsSlow(true),5000)
         fetch(`https://food-server.glitch.me/?lat=${position.latitude}&lng=${position.longitude}&index=${randomInt}`)
         //fetch(`http://localhost:3000/?lat=${position.latitude}&lng=${position.longitude}&int=${randomInt}`)
         .then(res => res.json())
         .then(doc => {
+            setIsSlow(false)
             const endTime = performance.now()
             console.log( (endTime - startTime) / 1000 )
             clearTimeout(timeout)
