@@ -27,8 +27,7 @@ const useSearch = () => {
         randomInt = Math.floor(100 * Math.random())// Random <Int>
         const startTime = performance.now()
         const timeout = setTimeout(setIsSlow(true),5000)
-        fetch(`https://food-server.glitch.me/?lat=${position.latitude}&lng=${position.longitude}&index=${randomInt}`)
-        //fetch(`http://localhost:3000/?lat=${position.latitude}&lng=${position.longitude}&int=${randomInt}`)
+        fetch(`https://food-server.glitch.me/shops?lat=${position.latitude}&lng=${position.longitude}&index=${randomInt}`)
         .then(res => res.json())
         .then(doc => {
             setIsSlow(false)
