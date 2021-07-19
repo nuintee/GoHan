@@ -17,14 +17,6 @@ const useSearch = () => {
         }
     }
 
-    const makeRequest = () => {
-        fetch('http://httpbin.org/get')
-        .then(res => res.json())
-        .then(doc => {
-            return doc
-        })
-    }
-
     const SaveStorage = (json) => { 
         JSON.stringify(json)
         localStorage.setItem(Date.now(),JSON.stringify(json))
@@ -46,7 +38,7 @@ const useSearch = () => {
         })
     }
 
-    return { PickData, SaveStorage, SearchData, makeRequest}
+    return { PickData, SaveStorage, SearchData}
 }
 
 export default useSearch

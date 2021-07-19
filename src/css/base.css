@@ -5,9 +5,14 @@
   font-family: "Hiragino Kaku Gothic ProN";
 }
 
+html,
+body {
+  height: 100%;
+}
+
 #root {
   padding: 2em;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
