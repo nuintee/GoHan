@@ -33,7 +33,7 @@ const Home__Page = () => {
         <Nav index = {0}/>
         <div>
             <Logo />
-            <Search condition = {isNavi} setIsNotify = {setIsNotify} position = {position} isNavi = {isNavi}/>
+            <Search condition = {isNavi} setIsNotify = {setIsNotify} position = {position} isNavi = {isNavi} role = 'button'/>
             { isSlow ? <p>もうしばらくお待ちください。</p> : null}
             {isNavi == 'loading' ? <Notification color = 'green' text = '位置情報を取得しています。'/> : null}
         </div>

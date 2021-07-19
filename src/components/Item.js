@@ -35,7 +35,7 @@ const Item = (props) => {
             <div className = 'l-item-button_group'>
                 <a href = {`https://www.google.com/maps?q=${address}` || null} target = '_blank' className = 'item-buttons'><Pin size = {20}/></a>
                 <a href = {url || 'URL'} target = '_blank' className = 'item-buttons'><Globe size = {20}/></a>
-                <button className = 'item-buttons' onClick = {CopyHandle} value = {url}><URL size = {20}/></button>
+                <button className = 'item-buttons' onClick = {CopyHandle} value = {url} role = 'url_button'><URL size = {20}/></button>
             </div>
         </div>
     )

@@ -10,7 +10,13 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env','@babel/preset-react']
+                        presets: ['@babel/preset-env','@babel/preset-react',
+                        // {
+                        //     "targets": {
+                        //         "node": "current"
+                        //     }
+                        // }
+                    ]
                     }
                 }
             },
@@ -34,9 +40,11 @@ module.exports = {
         open: true,
         hot: true,
         historyApiFallback: true,
+        port: 8080,
+        host: '0.0.0.0',
     },
     resolve: {
         extensions: ['.js','jsx'],
         modules: ['node_modules']
-    }
+    },
 }

@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 
 const useSearch = () => {
-    const [ isHover, setIsHover ] = useState(false)
     const [ isSlow, setIsSlow ] = useState(false)
     const history = useHistory()
     let randomInt
@@ -16,6 +15,14 @@ const useSearch = () => {
                 SaveStorage(item)
             }
         }
+    }
+
+    const makeRequest = () => {
+        fetch('http://httpbin.org/get')
+        .then(res => res.json())
+        .then(doc => {
+            return doc
+        })
     }
 
     const SaveStorage = (json) => { 
@@ -39,7 +46,7 @@ const useSearch = () => {
         })
     }
 
-    return { PickData, SaveStorage, SearchData}
+    return { PickData, SaveStorage, SearchData, makeRequest}
 }
 
 export default useSearch

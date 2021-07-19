@@ -10,7 +10,7 @@ const Search = (props) => {
     const history = useHistory()
     const { condition, position, setIsNotify, isNavi } = props
     const [ isClicked, setIsClicked ] = useState(false)
-    const { SearchData, PickData, SaveStorage } = useSearch()
+    const { SearchData } = useSearch()
 
     const Clicker = () => {
         if (condition == 'error') {
