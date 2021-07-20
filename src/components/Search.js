@@ -23,16 +23,8 @@ const Search = (props) => {
 
     return (
         <div className = "l-search">
-            {/* <div　className = { isHover ? "search-appear left" : "search-appear"}>
-                <Type size = {30} color = "C4C4C4"/>
-            </div>
-            <div　className = { isHover ? "search-appear right" : "search-appear"}>
-                <Coin size = {40} color = "C4C4C4"/>
-            </div> */}
             <button className = "search-button" 
-                    // onMouseEnter = {() => { isSearching && isNavi != 'error' ? setIsHover(false) : setIsHover(true)}}
                     onClick = {Clicker}>
-                    {/* {isSearching && isNavi != 'error' ? <Loading size = {30} className = 'spin__animation' /> : <Icon size = {30} />} */}
                     { isClicked ? <Loading size = {30} className = 'spin__animation' /> : <Icon size = {30} />}
             </button>
         </div>

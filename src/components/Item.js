@@ -21,16 +21,6 @@ const Item = (props) => {
             <img className = 'l-item-image' src = {image || 'https://i.ibb.co/Tb8pRLR/healthy-eating-ingredients-1200x628-facebook-1200x628.jpg'}/>
             <div className = 'l-item-text_group'>
                 <p className = 'item-title'>{name || '名前'}</p>
-                {/* <div className = 'l-item-conditions_group'>
-                    <span className = 'l-item-conditions'>
-                        <i className = 'item-icons'><Type size = {20}/></i>
-                        <p className = 'item-condition'>重め</p>
-                    </span>
-                    <span className = 'l-item-conditions'>
-                        <i className = 'item-icons'><Coin size = {25}/></i>
-                        <p className = 'item-condition'>¥2000</p>
-                    </span>
-                </div> */}
             </div>
             <div className = 'l-item-button_group'>
                 <a href = {`https://www.google.com/maps?q=${address}` || null} target = '_blank' className = 'item-buttons'><Pin size = {20}/></a>
