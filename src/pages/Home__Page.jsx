@@ -11,7 +11,7 @@ import useSearch from '../hooks/useSearch'
 const Home__Page = () => { 
     const { isSlow } = useSearch()
     const [ position, setPosition ] = useState()
-    const [ isNavi, setIsNavi ] = useState(false)
+    const [ isNavi, setIsNavi ] = useState('false')
     const [ isNotify, setIsNotify ] = useState(false)
 
     useEffect( () => {
@@ -21,7 +21,7 @@ const Home__Page = () => {
            navigator.geolocation.getCurrentPosition(pos => {
                 const { latitude, longitude } = pos.coords
                 setPosition({latitude, longitude})
-                setIsNavi(true)
+                setIsNavi('true')
            },error => {
                 setIsNavi('error')
            })
