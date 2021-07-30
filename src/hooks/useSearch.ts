@@ -6,7 +6,18 @@ const useSearch = () => {
     const history = useHistory()
     let randomInt
 
-    const PickData = (json) => {
+    interface Result {
+        results: {
+            shop: []
+        }
+    }
+
+    interface Coords {
+        latitude: number
+        longitude: number
+    }
+
+    const PickData = (json: Result) => {
         if (json) {
             const shop = json.results.shop // Shops <Object>
             if (shop.length > 0) {
@@ -17,15 +28,15 @@ const useSearch = () => {
         }
     }
 
-    const SaveStorage = (json) => { 
+    const SaveStorage = (json: Result) => { 
         JSON.stringify(json)
-        localStorage.setItem(Date.now(),JSON.stringify(json))
+        localStorage.setItem(Date.now().toString(),JSON.stringify(json))
     }
 
-    const SearchData = (position) => {
+    const SearchData = (position: Coords) => {
         randomInt = Math.floor(100 * Math.random())// Random <Int>
         const startTime = performance.now()
-        const timeout = setTimeout(setIsSlow(true),5000)
+        const timeout = setTimeout(() => setIsSlow(true),5000)
         fetch(`https://food-server.glitch.me/shops?lat=${position.latitude}&lng=${position.longitude}&index=${randomInt}`)
         .then(res => res.json())
         .then(doc => {
@@ -38,7 +49,7 @@ const useSearch = () => {
         })
     }
 
-    return { PickData, SaveStorage, SearchData}
+    return { PickData, SaveStorage, SearchData, isSlow}
 }
 
 export default useSearch

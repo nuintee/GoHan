@@ -10,8 +10,8 @@ import useSearch from '../hooks/useSearch'
 
 const Home__Page = () => { 
     const { isSlow } = useSearch()
-    const [ position, setPosition ] = useState()
-    const [ isNavi, setIsNavi ] = useState(false)
+    const [ position, setPosition ] = useState({latitude: 0,longitude: 0})
+    const [ isNavi, setIsNavi ] = useState('false')
     const [ isNotify, setIsNotify ] = useState(false)
 
     useEffect( () => {
@@ -21,7 +21,7 @@ const Home__Page = () => {
            navigator.geolocation.getCurrentPosition(pos => {
                 const { latitude, longitude } = pos.coords
                 setPosition({latitude, longitude})
-                setIsNavi(true)
+                setIsNavi('true')
            },error => {
                 setIsNavi('error')
            })
@@ -35,7 +35,7 @@ const Home__Page = () => {
             <Logo />
             <Search condition = {isNavi} setIsNotify = {setIsNotify} position = {position} isNavi = {isNavi} role = 'button'/>
             { isSlow ? <p>もうしばらくお待ちください。</p> : null}
-            {isNavi == 'loading' ? <Notification color = 'green' text = '位置情報を取得しています。'/> : null}
+            {isNavi == 'loading' ? <Notification  color = 'green' text = '位置情報を取得しています。' setIsNotify = {setIsNotify}/> : null}
         </div>
         { isNotify ? <Notification setIsNotify = {setIsNotify}/> : null}
         <Powered />

@@ -1,7 +1,13 @@
 import React from "react"
 import { FaTimes as Cross } from 'react-icons/fa'
 
-const Notification = (props) => {
+interface NotificationProps  {
+    color?: string
+    text?: string
+    setIsNotify: Function
+}
+
+const Notification = (props: NotificationProps) => {
     const { color, text, setIsNotify } = props
 
     const ClickHandle = () => {

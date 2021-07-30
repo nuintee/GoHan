@@ -15,6 +15,12 @@ module.exports = {
                 }
             },
             {
+                test: /\.(ts|tsx)$/,
+                use: [
+                    'ts-loader'
+                ]
+            },
+            {
                  test: [/\.css$/],
                  use: [
                      'style-loader',
@@ -35,10 +41,10 @@ module.exports = {
         hot: true,
         historyApiFallback: true,
         port: 8080,
-        host: '0.0.0.0',
+        host: 'localhost',
     },
     resolve: {
-        extensions: ['.js','jsx'],
+        extensions: ['.js','.jsx','.ts','.tsx'],
         modules: ['node_modules']
     },
 }

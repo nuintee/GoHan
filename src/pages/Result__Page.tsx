@@ -15,7 +15,11 @@ const Result__Page = () => {
 
     const ItemRenderer = () => {
 
-        const noresults_style = {
+        interface Style {
+            [key: string]: string
+        }
+
+        const noresults_style: Style = {
             position: 'absolute',
             top: `50%`,
             left: `50%`,
@@ -23,27 +27,31 @@ const Result__Page = () => {
         }
 
         if (localStorage.length >= 1) {
-            return Object.keys(localStorage).map((key,index) => (
-                <Item
-                    key = {index}
-                    date = {key}
-                    name = {JSON.parse(localStorage[key]).name}
-                    image = {JSON.parse(localStorage[key]).photo.pc.l}
-                    url = {JSON.parse(localStorage[key]).urls.pc}
-                    address = {JSON.parse(localStorage[key]).address}
-                    isNotify = {isNotify}
-                    setIsNotify = {setIsNotify}
-                />
-            )).sort((a,b) => {
-                if (a.props.date > b.props.date) {
-                    return -1
-                } else if (a.props.date < b.props.date) {
-                    return 1
-                } else if (a.props.date == b.props.date) {
-                    return 0
-                }
-            })
-        }　else if (localStorage.length == 0) {
+            return <>
+            {
+                Object.keys(localStorage).map((key,index) => (
+                    <Item
+                        key = {index}
+                        date = {key}
+                        name = {JSON.parse(localStorage[key]).name}
+                        image = {JSON.parse(localStorage[key]).photo.pc.l}
+                        url = {JSON.parse(localStorage[key]).urls.pc}
+                        address = {JSON.parse(localStorage[key]).address}
+                        isNotify = {isNotify}
+                        setIsNotify = {setIsNotify}
+                    />
+                )).sort((a,b): number => {
+                    if (a.props.date > b.props.date) {
+                        return -1
+                    } else if (a.props.date < b.props.date) {
+                        return 1
+                    } else {
+                        return 0
+                    }
+                })
+            }
+            </>
+        }　else {
             return <p style = {noresults_style}>結果がありません。</p>
         }
     }
