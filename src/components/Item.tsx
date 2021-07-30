@@ -8,12 +8,13 @@ import { FiLink2 as URL } from 'react-icons/fi'
 
 interface ItemProps {
     isNotify: boolean
+    date: string
     setIsNotify: Function
     name: string
-    type: string
+    type?: string
     image: string
     url: string
-    cost: number
+    cost?: number
     address: string
 }
 

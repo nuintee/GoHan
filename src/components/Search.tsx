@@ -6,9 +6,22 @@ import { FaHamburger as Type } from 'react-icons/fa'
 import { BiCoin as Coin } from 'react-icons/bi' 
 import useSearch from '../hooks/useSearch'
 
-const Search = (props) => {
+interface SearchProps {
+    condition: string
+    position: Position
+    setIsNotify: Function
+    isNavi: string
+    role: string
+}
+
+interface Position {
+    latitude: number
+    longitude: number
+}
+
+const Search = (props: SearchProps) => {
     const history = useHistory()
-    const { condition, position, setIsNotify, isNavi } = props
+    const { condition, position, setIsNotify, isNavi, role } = props
     const [ isClicked, setIsClicked ] = useState(false)
     const { SearchData } = useSearch()
 
