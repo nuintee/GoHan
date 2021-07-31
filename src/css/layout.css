@@ -21,9 +21,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 15em;
-  width: 15em;
-  position: relative;
+  height: 10em;
+  width: 10em;
+  /* position: relative; */
   /* margin: 5em; */
   /* background-color: red; */
 }
@@ -102,4 +102,25 @@
   height: 90%;
   width: 100%;
   box-sizing: border-box;
+}
+
+.l-filters_wrapper {
+  box-sizing: border-box;
+}
+
+.l-filters_group {
+  display: flex;
+  flex-direction: row;
+}
+
+.l-filter_group {
+  display: flex;
+  flex-direction: column;
+}
+
+.l-home_middle {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 70%;
 }

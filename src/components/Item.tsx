@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { BiCoin as Coin } from 'react-icons/bi' 
-import { FaHamburger as Type } from 'react-icons/fa'
 import { HiOutlineGlobeAlt as Globe } from 'react-icons/hi'
 import { RiMapPin2Line as Pin } from 'react-icons/ri'
 import { FiLink2 as URL } from 'react-icons/fi'

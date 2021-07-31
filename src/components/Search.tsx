@@ -2,8 +2,7 @@ import React, { useState } from "react"
 import { useHistory } from "react-router-dom"
 import { AiOutlineSearch as Icon } from 'react-icons/ai'
 import { FiRefreshCw as Loading } from 'react-icons/fi'
-import { FaHamburger as Type } from 'react-icons/fa'
-import { BiCoin as Coin } from 'react-icons/bi' 
+
 import useSearch from '../hooks/useSearch'
 
 interface SearchProps {
